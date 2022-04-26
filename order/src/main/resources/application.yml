@@ -12,3 +12,13 @@ spring:
         password: nacos
         namespace: public
         ephemeral: false
+#被调用服务名
+stock-service:
+  ribbon:
+#    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.ZoneAvoidanceRule
+    NFLoadBalancerRuleClassName: com.llmcu.springcloudalibaba.order.ribbon.MyRoundingRule
+ribbon:
+  eager-load:
+    enabled: true
+    clients: order-service
