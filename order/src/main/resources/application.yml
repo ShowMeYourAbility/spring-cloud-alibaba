@@ -12,6 +12,10 @@ spring:
         password: nacos
         namespace: public
         ephemeral: false
+    # 不使用ribbon
+    loadbalancer:
+      ribbon:
+        enabled: false
 #被调用服务名
 stock-service:
   ribbon:
