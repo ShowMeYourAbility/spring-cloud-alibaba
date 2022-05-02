@@ -1,8 +1,8 @@
 server:
-  port: 8081
+  port: 8084
 spring:
   application:
-    name: stock-service
+    name: product-service
   cloud:
     nacos:
       discovery:
@@ -11,4 +11,3 @@ spring:
         password: nacos
         namespace: 27c4c3f9-2898-497b-9f08-505b39f72513
         ephemeral: false
-        metadata: {"version":"2.1","v":"2.0"}

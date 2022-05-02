@@ -1,9 +1,10 @@
 package com.llmcu.springcloudalibaba.order.controller;
 
 
+import com.llmcu.springcloudalibaba.order.feign.ProductService;
+import com.llmcu.springcloudalibaba.order.feign.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
@@ -12,10 +13,17 @@ public class OrderController {
 
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private StockService stockService;
+    @Autowired
+    private ProductService productService;
 
-    @RequestMapping("/add")
-    public String add(){
+    @GetMapping("/add")
+    public String add(@RequestParam String id){
         System.out.println("下单成功");
-        return restTemplate.getForObject("http://stock-service/stock/reduce", String.class);
+        String productById = productService.getProductById(id);
+//        return restTemplate.getForObject("http://stock-service/stock/reduce", String.class);
+        String stockResult = stockService.reduceStock();
+        return stockResult+productById;
     }
 }

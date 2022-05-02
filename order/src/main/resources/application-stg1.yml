@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.128.243:80/
+        username: nacos
+        password: nacos
+        namespace: 09acff21-7acc-4180-8511-d2f47d3812b1
+        ephemeral: false
+logging:
+  level:
+    com.llmcu.springcloudalibaba.order.feign: debug
+feign:
+  client:
+    config:
+      stock-service:
+        #为服务指定日志样式
+        loggerLevel: FULL
+      product-service:
+        # 支持feign原生注解
+#        contract: feign.Contract.Default
+        #连接超时时间，默认2s
+        connectionTimeout: 5000
+        #读取超时时间，默认5s，实测感觉是2s
+        readTimeout: 5000
+        # 拦截器
+#        requestInterceptors[0]: com.llmcu.springcloudalibaba.order.feign.intercepter.MyIntercepter
+current:
+  nacos:
+    config:
+      namespace: 09acff21-7acc-4180-8511-d2f47d3812b1
