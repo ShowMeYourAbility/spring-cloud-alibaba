@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/nacosConfigure")
 @RefreshScope
 public class NacosConfigureController {
-    @Value("${user.name}")
+    @Value("${users.names}")
     private String name;
     @Value("${user.age}")
     private int age;
