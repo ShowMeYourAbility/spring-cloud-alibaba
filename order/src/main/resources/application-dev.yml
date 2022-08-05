@@ -31,3 +31,5 @@ current:
   nacos:
     config:
       namespace: 27c4c3f9-2898-497b-9f08-505b39f72513
+users:
+  names: application-dev.yml
