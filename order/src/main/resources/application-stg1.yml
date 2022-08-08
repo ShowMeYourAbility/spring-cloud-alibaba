@@ -9,6 +9,11 @@ spring:
         password: nacos
         namespace: 09acff21-7acc-4180-8511-d2f47d3812b1
         ephemeral: false
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8858
+      #关闭context收敛，才能在service中设置链路限流
+      web-context-unify: false
 logging:
   level:
     com.llmcu.springcloudalibaba.order.feign: debug

@@ -9,6 +9,13 @@ spring:
         password: nacos
         namespace: 27c4c3f9-2898-497b-9f08-505b39f72513
         ephemeral: false
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8858
+      #指定应用与Sentinel控制台交互的端口，应用本地会起一个该端口占用的HttpServer(没明白)
+      #port: 8800
+      #关闭context收敛，才能在service中设置链路限流
+      web-context-unify: false
 logging:
   level:
     com.llmcu.springcloudalibaba.order.feign: debug

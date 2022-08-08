@@ -8,24 +8,18 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/stock")
-public class StockController {
+@RequestMapping("/stock2")
+public class StockController2 {
     @Value("${server.port}")
     private String serverPort;
-
-    @GetMapping("reduce")
-    public String reduceStock(HttpServletRequest request) {
-        System.out.println("扣减库存");
-        return "reduce sucess"+serverPort;
-    }
 
     /**
      * 用于测试sentinel整合feign
      * @return
      */
-    @GetMapping("reduce3")
-    public String reduceStock3() {
-//        int a = 1/0;
-        return "reduce3 sucess"+serverPort;
+    @GetMapping("reduce2")
+    public String reduceStock2() {
+        int a = 1/0;
+        return "reduce2 sucess"+serverPort;
     }
 }

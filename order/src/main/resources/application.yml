@@ -14,4 +14,6 @@ ribbon:
   eager-load:
     enabled: true
     clients: order-service
-
+feign:
+  sentinel:
+    enabled: true #添加feign对sentinel的支持
