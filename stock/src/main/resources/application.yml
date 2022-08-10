@@ -11,7 +11,7 @@ spring:
   datasource: # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
     #driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动
-    url: jdbc:mysql://192.168.128.243:3306/server_stock?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL
+    url: jdbc:mysql://192.168.128.243:3306/service_stock?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL
     username: root
     password: c1L2~k3J4
     hikari:
@@ -41,3 +41,25 @@ spring:
         namespace: 27c4c3f9-2898-497b-9f08-505b39f72513
         ephemeral: false
         metadata: {"version":"2.1","v":"2.0"}
+seata:
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.128.243:80
+      application: seata-server
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      namespace: seata_dev
+  config:
+    type: nacos
+    nacos:
+      server-addr: 192.168.128.243:80
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      namespace: seata_dev
+  tx-service-group: guangzhou
+  service:
+    vgroup-mapping:
+      guangzhou: default

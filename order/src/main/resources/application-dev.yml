@@ -21,29 +21,29 @@ spring:
 # 配置数据源信息
 #
 ############################################################
-#  datasource: # 数据源的相关配置
-#    type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
-#    #driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动
-#    url: jdbc:mysql://192.168.128.243:3306/foodie_shop?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL
-#    username: root
-#    password: c1L2~k3J4
-#    hikari:
-#      connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQ
-#      minimum-idle: 5 # 最小连接数
-#      maximum-pool-size: 20 # 最大连接数
-#      auto-commit: true # 自动提交
-#      idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
-#      pool-name: DateSourceHikariCP # 连接池名字
-#      max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
-#      connection-test-query: SELECT 1
+  datasource: # 数据源的相关配置
+    type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
+    #driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动
+    url: jdbc:mysql://192.168.128.243:3306/service_order?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: c1L2~k3J4
+    hikari:
+      connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQ
+      minimum-idle: 5 # 最小连接数
+      maximum-pool-size: 20 # 最大连接数
+      auto-commit: true # 自动提交
+      idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      pool-name: DateSourceHikariCP # 连接池名字
+      max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
+      connection-test-query: SELECT 1
 ############################################################
 #
 # mybatis 配置
 #
 ############################################################
-#mybatis:
-#  type-aliases-package: com.llmcu.pojo # 所有POJO类所在包路径
-#  mapper-locations: classpath:mapper/*.xml # mapper映射文件
+mybatis:
+  type-aliases-package: com.llmcu.pojo # 所有POJO类所在包路径
+  mapper-locations: classpath:mapper/*.xml # mapper映射文件
 logging:
   level:
     com.llmcu.springcloudalibaba.order.feign: debug
@@ -68,3 +68,25 @@ current:
       namespace: 27c4c3f9-2898-497b-9f08-505b39f72513
 users:
   names: application-dev.yml
+seata:
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.128.243:80
+      application: seata-server
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      namespace: seata_dev
+  config:
+    type: nacos
+    nacos:
+      server-addr: 192.168.128.243:80
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      namespace: seata_dev
+  tx-service-group: guangzhou
+  service:
+    vgroup-mapping:
+      guangzhou: default
