@@ -1,0 +1,42 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+      routes:
+        - id: order_route
+          uri: lb://order-service #http://localhost:8080;lb:LoadBalance
+          predicates:
+            - After=2017-01-20T17:42:47.789+08:00[Asia/Shanghai]
+            - Path=/order-serv/**
+#            - Cookie=chocolate, ch.p
+#            - Header=X-Request-Id, \d+
+#            - Host=localhost:8086
+#            - Query=id, \d+
+#            - CheckAuth=myAuth, abcd
+          filters:
+            - StripPrefix=1 # 剥除前缀
+#            - AddRequestHeader=X-Request-red, blue # 添加请求头
+            - PrefixPath=/mall-order # 添加前缀 对应微服务需要配置context‐path
+#            - RedirectTo=302, http://baidu.com # 重定向
+      globalcors: # 跨域设置
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+    nacos:
+      discovery:
+        server-addr: 192.168.128.243:80
+        username: nacos
+        password: nacos
+        namespace: 27c4c3f9-2898-497b-9f08-505b39f72513
+        ephemeral: false
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8858

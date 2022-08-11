@@ -19,11 +19,16 @@ public class OrderController {
     private ProductService productService;
 
     @GetMapping("/add")
-    public String add(@RequestParam String id){
+    public String add(
+//            @RequestHeader("X-Request-red") String color,
+//            @RequestHeader("myAuth") String myAuth,
+            @RequestParam String id) {
+//        System.out.println("color:" + color);
+//        System.out.println("myAuth:" + myAuth);
         System.out.println("下单成功");
         String productById = productService.getProductById(id);
 //        return restTemplate.getForObject("http://stock-service/stock/reduce", String.class);
         String stockResult = stockService.reduceStock();
-        return stockResult+productById;
+        return stockResult + productById;
     }
 }
