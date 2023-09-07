@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author liuling
  * @date 2022/4/27 15:48
  */
-@FeignClient(contextId="stockService",value = "stock-service",path="/stock")
+@FeignClient(contextId="stockService",value = "stock-service",path="/mall-stock/stock")
 //@FeignClient(value = "stock-service",path="/stock",configuration = FeignConfiguration.class)
 public interface StockService {
 

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class StockFallBackService2 implements StockService2 {
 
 
+    @Override
     public String reduceStock2() {
         return "feign整合sentinel2";
     }

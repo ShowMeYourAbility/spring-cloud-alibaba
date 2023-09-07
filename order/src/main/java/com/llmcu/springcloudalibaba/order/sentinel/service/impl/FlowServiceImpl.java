@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class FlowServiceImpl implements FlowService {
+    @Override
     @SentinelResource(value = "doSomething", blockHandler = "blockHandler4DoSomething")
 //    @SentinelResource(value="reduceStock3",blockHandler = "blockHandler4reduceStock2" ,blockHandlerClass = StockServiceBlockHandlerClass.class )
     public String doSomething() {

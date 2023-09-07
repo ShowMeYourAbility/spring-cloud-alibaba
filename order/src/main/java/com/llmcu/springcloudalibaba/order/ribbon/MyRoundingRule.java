@@ -13,10 +13,12 @@ import java.util.List;
  * @date 2022/4/26 17:47
  */
 public class MyRoundingRule extends AbstractLoadBalancerRule {
+    @Override
     public void initWithNiwsConfig(IClientConfig clientConfig) {
 
     }
 
+    @Override
     public Server choose(Object key) {
         // 原理：通过ILoadBalancer获取服务器
         ILoadBalancer loadBalancer = this.getLoadBalancer();

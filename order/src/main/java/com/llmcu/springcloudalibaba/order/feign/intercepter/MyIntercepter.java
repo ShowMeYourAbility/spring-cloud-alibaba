@@ -15,6 +15,7 @@ public class MyIntercepter implements RequestInterceptor {
 
     private static final Logger log = LoggerFactory.getLogger(MyIntercepter.class);
 
+    @Override
     public void apply(RequestTemplate template) {
         // 设置请求头
         template.header("X-Auth-Token", "token123");

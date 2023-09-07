@@ -23,7 +23,7 @@ public class SeataOrderController {
 
     @GetMapping("order/create")
     public String createOrder(){
-        seataOrderService.createOrder();
+        seataOrderService.createOrder("2");
         return "success";
     }
 }

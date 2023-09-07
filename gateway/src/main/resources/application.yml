@@ -24,6 +24,21 @@ spring:
 #            - AddRequestHeader=X-Request-red, blue # 添加请求头
             - PrefixPath=/mall-order # 添加前缀 对应微服务需要配置context‐path
 #            - RedirectTo=302, http://baidu.com # 重定向
+        - id: stock_route
+          uri: lb://stock-service
+          predicates:
+            - Path=/stock-serv/**
+          filters:
+            - StripPrefix=1 # 剥除前缀
+            - PrefixPath=/mall-stock # 添加前缀 对应微服务需要配置context‐path
+        - id: product_route
+          uri: lb://product-service
+          predicates:
+            - Path=/product-serv/**
+          filters:
+            - StripPrefix=1 # 剥除前缀
+            - PrefixPath=/mall-product # 添加前缀 对应微服务需要配置context‐path
+
       globalcors: # 跨域设置
         cors-configurations:
           '[/**]':

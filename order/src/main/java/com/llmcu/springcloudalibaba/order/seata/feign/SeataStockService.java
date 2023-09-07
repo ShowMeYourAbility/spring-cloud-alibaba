@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author liuling
  * @date 2022/8/9 22:36
  */
-@FeignClient(contextId = "seataStockService", value = "stock-service", path = "/stock/seata")
+@FeignClient(contextId = "seataStockService", value = "stock-service", path = "/mall-stock/stock/seata")
 public interface SeataStockService {
     @GetMapping("stock/create")
     String createStock();

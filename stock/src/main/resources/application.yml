@@ -1,4 +1,6 @@
 server:
+  servlet:
+    context-path: /mall-stock
   port: 8081
 spring:
   application:

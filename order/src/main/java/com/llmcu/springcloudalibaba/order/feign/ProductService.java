@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @author liuling
  * @date 2022/4/27 18:51
  */
-@FeignClient(value = "product-service",path="/product",configuration = ProductFeignConfiguration.class)
+@FeignClient(value = "product-service",path="/mall-product/product",configuration = ProductFeignConfiguration.class)
 public interface ProductService {
 //    @GetMapping("/{id}")
 //    String getProductById(@PathVariable(name = "id") String id);

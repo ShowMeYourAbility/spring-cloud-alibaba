@@ -7,5 +7,6 @@ package com.llmcu.springcloudalibaba.order.seata.service;
  * @date 2022/8/9 18:10
  */
 public interface SeataOrderService {
-    void createOrder();
+
+    boolean createOrder(String cnt);
 }
