@@ -5,6 +5,7 @@
     <modules>
         <module>order</module>
         <module>stock</module>
+        <module>gateway</module>
     </modules>
 
     <groupId>com.llmcu.springcloud</groupId>
